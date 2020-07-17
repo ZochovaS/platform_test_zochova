@@ -1,7 +1,12 @@
 import task1.Task1;
 import task2.Task2;
+import task3.entity.Coordinate;
+import task3.repository.MatrixRepository;
+import task3.repository.MatrixRepositoryImpl;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
@@ -26,6 +31,22 @@ public class Main {
 //        Task 2: Second implementation - Algorithmic complexity: linear - identify palindrome based on definition
 //        from https://cs.wikipedia.org/wiki/Palindrom
         System.out.println(Task2.isTheInputPalindrome(inputToBeTested2));
+
+//---------------------------------------------------------------------------------------------
+        Map<Coordinate, Integer> matrixMap = new HashMap<>();
+        matrixMap.put(new Coordinate(0, 1), 3);
+        matrixMap.put(new Coordinate(1, 0), 1);
+        matrixMap.put(new Coordinate(2, 2), 4);
+        matrixMap.put(new Coordinate(2, 3), -1);
+        matrixMap.put(new Coordinate(3, 1), 1);
+        MatrixRepository matrix = new MatrixRepositoryImpl(matrixMap);
+//        Task 3:
+        matrix.printMatrix();
+
+        System.out.println(matrix.sum(2,2));
+
+        matrix.set(0, 1, 5);
+        matrix.printMatrix();
 
     }
 }
